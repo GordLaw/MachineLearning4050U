@@ -1,0 +1,48 @@
+h1{
+    font-size: 3rem;
+    margin: 0;
+}
+
+p-card{
+    width: 100%;
+}
+
+#container{
+    background-size: cover;
+    background-image: url("/Header_1.jpg");
+    background-repeat: no-repeat;
+    height: 100vh;
+}
+
+#headerContainer{
+    padding-top: 1rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-bottom: 16%;
+}
+
+#mainContainer{
+    margin: auto;
+    width: 50%;
+    padding: 10px;
+    min-width: 50rem;
+}
+
+#titleContainer{
+    display: flex;
+    align-items: center;
+    text-align: center;
+    margin: 0 auto;
+    width: 500px;
+}
+
+#steamIcon{
+    width: 69px;
+    height: 69px;
+}
+
+#subtextContainer{
+    text-align: center;
+    margin: 0 auto;
+    width: 80% ;
+}
