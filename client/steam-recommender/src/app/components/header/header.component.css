@@ -1,0 +1,29 @@
+p-menubar {
+    height: 3rem;
+    background-color: #171a21;
+    border-color: #171a21;
+}
+
+::ng-deep .p-button {
+    background-color: #171a21;
+    border: none;
+}
+
+::ng-deep .p-menubar-item-label {
+    color: #e3ebf1;
+}
+
+::ng-deep .p-menubar-item-content :hover{
+    border-radius: 4px;
+    background-color: #171a21;
+}
+
+::ng-deep .p-menubar-item-content :active{
+    border-radius: 4px;
+    background-color: #171a21;
+}
+
+::ng-deep .p-menubar-item-link {
+    border-radius: 4px;
+    background-color: #171a21;
+}

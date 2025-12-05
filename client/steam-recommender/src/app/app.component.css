@@ -5,6 +5,8 @@ h1{
 
 p-card{
     width: 100%;
+    background-color: #171a21;
+    color: #e3ebf1;
 }
 
 #container{
@@ -39,10 +41,17 @@ p-card{
 #steamIcon{
     width: 69px;
     height: 69px;
+    -webkit-filter: invert(1);
+    filter: invert(1);
 }
 
 #subtextContainer{
     text-align: center;
     margin: 0 auto;
     width: 80% ;
+}
+
+#additionalContainer{
+    background-color: #1b2838;
+
 }

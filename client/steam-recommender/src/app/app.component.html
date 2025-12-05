@@ -1,23 +1,25 @@
 <main class="main">
   <div id="container">
-  <div id="headerContainer">
-    <app-header></app-header>
+    <div id="headerContainer">
+      <app-header></app-header>
+    </div>
+    <div id="mainContainer">
+      <p-card>
+        <div id="titleContainer">
+            <img id="steamIcon" src="steam.png">
+            <h1>Find Your Next Favorite Game</h1>
+        </div>
+        <div id="subtextContainer">
+          <p>Our AI-powered recommender analyzes your tastes and playstyle to deliver smart, personalized game suggestions.</p>
+          <!-- or some sort of instruction on how to use -->
+        </div>
+        <app-input></app-input>
+      </p-card>
+    </div>
   </div>
-  <div id="mainContainer">
-    <p-card>
-      <div id="titleContainer">
-          <img id="steamIcon" src="steam.png">
-          <h1>Find Your Next Favorite Game</h1>
-      </div>
-      <div id="subtextContainer">
-        <p>Our AI-powered recommender analyzes your tastes and playstyle to deliver smart, personalized game suggestions.</p>
-        <!-- or some sort of instruction on how to use -->
-      </div>
-      <app-input></app-input>
-    </p-card>
-  </div>
-  </div>
-  <div>
-    <h1>Next Section</h1>
+  <div id="additionalContainer">
+    <app-game-highlight></app-game-highlight>
+    <app-game-container></app-game-container>
+    <app-game-table></app-game-table>
   </div>
 </main>
