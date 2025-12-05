@@ -22,10 +22,6 @@ class GameGNN(nn.Module):
 
 
 class DotProductLinkPredictor(nn.Module):
-    """
-    Scores pairs of nodes by dot product of their embeddings.
-    Used for link prediction / similarity learning.
-    """
     def forward(self, z_i, z_j):
         # z_i, z_j: [num_pairs, embed_dim]
         return (z_i * z_j).sum(dim=-1)
