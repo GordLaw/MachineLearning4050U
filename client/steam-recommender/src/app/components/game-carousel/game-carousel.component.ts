@@ -1,23 +1,23 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { CarouselModule } from 'primeng/carousel';
 import { TopGameService } from '../../services/top-game.service';
 import { ButtonModule } from 'primeng/button';
+import { CardModule } from 'primeng/card';
+import { ɵEmptyOutletComponent } from "@angular/router";
 
 @Component({
   selector: 'app-game-container',
-  imports: [CarouselModule, ButtonModule],
-  templateUrl: './game-container.component.html',
-  styleUrl: './game-container.component.css'
+  imports: [CarouselModule, ButtonModule, CardModule],
+  templateUrl: './game-carousel.component.html',
+  styleUrl: './game-carousel.component.css'
 })
-export class GameContainerComponent implements OnInit {
-  topGames: any[] = [];
+export class GameCarouselComponent implements OnInit {
+  @Input() inputData: any[] = [];
   responsiveOptions: any[] | undefined;
-  constructor(private topGameService: TopGameService){}
-  ngOnInit(): void {
-    this.topGameService.getTopSteamGames().subscribe((response: any) => {
-      this.topGames = response.top_games;
-    });
 
+  constructor(private topGameService: TopGameService){}
+
+  ngOnInit(): void {
     this.responsiveOptions = [
       {
           breakpoint: '1400px',

@@ -1,0 +1,10 @@
+<div id="componentContainer">
+    @for(item of inputData; track item){
+        <p-card (click)="openGamePage(item.name)">
+            <div class="gameContainer">
+                <img src="{{item.tiny_image}}" [alt]="item.name" class="itemImage" />
+                <p class="itemText">{{item.name}}</p>
+            </div>
+        </p-card>
+    }
+</div>

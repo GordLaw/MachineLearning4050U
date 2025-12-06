@@ -1,6 +1,7 @@
 from flask import Flask, jsonify
 from flask_cors import CORS
 import requests
+from gnn.inference import *
 
 app = Flask(__name__)
 CORS(app)
@@ -9,9 +10,23 @@ CORS(app)
 def hello_world():
     return "<p>Hello, World!</p>"
 
-@app.route("/query", methods=["POST"])
-def query_model(query_data=None):
-    return 0
+@app.route("/query/<query_data>", methods=["POST"])
+def query_model(query_data: str):
+    game_list = []
+    recs = recommend_by_title(query_data)
+    for game in recs[:5]:
+        item_params = {
+            "term": game["title"],
+            "l": "english",
+            "cc": "CA"
+        }
+        item_search = requests.get("https://store.steampowered.com/api/storesearch/", params=item_params)
+        game_list.append(item_search.json()["items"][0])
+
+    return jsonify({
+        "status": 200,
+        "recommended_games": game_list
+    })
 
 @app.route("/get-top-games", methods=["GET"])
 def get_top_games():
@@ -62,7 +77,24 @@ def get_game_genre(game_genre: str):
 @app.route("/get-featured-games", methods=["GET"])
 def get_featured_game():
     featured_search = requests.get("https://store.steampowered.com/api/featured")
-    featured_game_list = featured_search.json()["large_capsules"]
+    featured_game_list = featured_search.json()["featured_win"]
+
+
+    return jsonify({
+        "status": 200,
+        "top_games": featured_game_list
+    })
+
+@app.route("/get-featured-categories", methods=["GET"])
+def get_featured_cat_game():
+    featured_categories_search = requests.get("https://store.steampowered.com/api/featuredcategories")
+    featured_categories_list = featured_categories_search.json()
+
+
+    return jsonify({
+        "status": 200,
+        "top_cat_games": featured_categories_list
+    })
 
 if __name__ == "__main__":
     print("Starting Flask app...")

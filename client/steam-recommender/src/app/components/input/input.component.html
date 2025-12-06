@@ -1,0 +1,8 @@
+<div id="componentContainer">
+    <form #inputForm="ngForm" (ngSubmit)="onSubmit(inputForm)">
+        <div id="inputContainer">
+            <input type="text" pInputText [(ngModel)]="value" name="input" fluid />
+            <p-button type="Submit">Submit</p-button>    
+        </div>
+    </form>
+</div>

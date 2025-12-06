@@ -1,11 +1,22 @@
 #componentContainer{
     display: flex;
-    padding-top: 1rem;
+    padding-top: 2rem;
     padding-bottom: 1rem;
-    margin-left: 15rem;
-    margin-right: 15rem;
+}
+
+.p-card{
+    --p-card-body-padding: 4px 0px 0px 78px;
+    background-color: #4d5b6e;
+    margin: 10px;
 }
 
 #featuredImage{
     object-fit: cover;
+    border-radius: 8px 8px 0px 0px;
+}
+
+#dealName{
+    color: #e3ebf1;
+    text-align: center;
+    margin: 0;
 }

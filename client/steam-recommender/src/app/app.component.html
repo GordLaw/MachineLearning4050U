@@ -1,7 +1,7 @@
 <main class="main">
   <div id="container">
     <div id="headerContainer">
-      <app-header></app-header>
+      <app-header (newItemEvent)="handleChildEvent($event)"></app-header>
     </div>
     <div id="mainContainer">
       <p-card>
@@ -10,16 +10,85 @@
             <h1>Find Your Next Favorite Game</h1>
         </div>
         <div id="subtextContainer">
-          <p>Our AI-powered recommender analyzes your tastes and playstyle to deliver smart, personalized game suggestions.</p>
+          <p>Find your next game with our AI-powered recommender system to analyzes your tastes and playstyle to deliver smart, personalized game suggestions.</p>
           <!-- or some sort of instruction on how to use -->
         </div>
-        <app-input></app-input>
+        <app-input (userInput)="receiveMessage($event)"></app-input>
+        <app-recommendation [inputData]="recommendedgames"></app-recommendation>
       </p-card>
     </div>
   </div>
-  <div id="additionalContainer">
-    <app-game-highlight></app-game-highlight>
-    <app-game-container></app-game-container>
-    <app-game-table></app-game-table>
+  <div id="featuredContainer">
+    <div id="featuredCat">
+      <app-game-highlight [inputData]="featuredCatGameA"></app-game-highlight>
+      <app-game-highlight [inputData]="featuredCatGameB"></app-game-highlight>
+      <app-game-highlight [inputData]="featuredCatGameC"></app-game-highlight>
+      <app-game-highlight [inputData]="featuredCatGameD"></app-game-highlight>
+    </div>
+    <div id="featuredCarousel">
+      <app-game-container [inputData]="featuredGames"></app-game-container>
+    </div>
+    <div id="featuredGames">
+      <app-game-table [inputData]="featuredSpecialGames"></app-game-table>
+      <p-divider layout="vertical" />
+      <app-game-table [inputData]="featuredTopGames"></app-game-table>
+      <p-divider layout="vertical" />
+      <app-game-table [inputData]="featuredNewGames"></app-game-table>
+    </div>
+  </div>
+  <div id="aboutContainer">
+    <div id="aboutTextContainer">
+      <h3>About This Project</h3>
+      <span>
+        This project is made by Daniel Bryon, Beatriz Provido, and 
+        Gordon Law for our final project of machine learning 4050U. 
+        Compiling what we've learnt through the course and the research 
+        we have done to create a model which uses a graph neural network 
+        (GNN) to generate personalized game recommendations from a given 
+        input through link prediction. Utilizing libraries such as Pytorch,
+        Geometric, and Pandas to capture the patterns and deeper relationships 
+        between users and the games they play.
+      </span>
+    </div>
+    <div id="aboutResourcesContainer">
+      <h4>Resources</h4>  
+      <ul>
+        <li>
+          <a href="https://github.com/Revadike/InternalSteamWebAPI">
+            https://github.com/Revadike/InternalSteamWebAPI
+          </a>
+        </li>
+        <li>
+          <a href="https://pytorch-geometric.readthedocs.io/en/2.5.1/modules/nn.html">
+            https://pytorch-geometric.readthedocs.io/en/2.5.1/modules/nn.html
+          </a>
+        </li>
+        <li>
+          <a href="https://docs.pytorch.org/docs/stable/index.html">
+            https://docs.pytorch.org/docs/stable/index.html
+          </a>
+        </li>
+        <li>
+          <a href="https://angular.dev/">
+            https://angular.dev/
+          </a>
+        </li>
+        <li>
+          <a href="https://flask.palletsprojects.com/en/stable/">
+            https://flask.palletsprojects.com/en/stable/
+          </a>
+        </li>
+        <li>
+          <a href="https://uvadlc-notebooks.readthedocs.io/en/latest/index.html">
+            https://uvadlc-notebooks.readthedocs.io/en/latest/index.html
+          </a>
+        </li>
+        <li>
+          <a href="https://www.dgl.ai/dgl_docs/en/2.3.x/index.html">
+            https://www.dgl.ai/dgl_docs/en/2.3.x/index.html
+          </a>
+        </li>
+      </ul>
+    </div>
   </div>
 </main>

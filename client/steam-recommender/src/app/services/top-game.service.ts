@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -13,8 +13,21 @@ export class TopGameService{
     return this.http.get<any>(this.baseUrl + "get-top-games");
   }
 
-  getSteamPage(game_name: string): any{
-    return this.http.get<any>(this.baseUrl + "get-game-page/" + game_name);
+  getSteamPage(gameName: string): any{
+    return this.http.get<any>(this.baseUrl + "get-game-page/" + gameName);
+  }
+
+  getFeaturedSteamGames(): any{
+    return this.http.get<any>(this.baseUrl + "get-featured-games");
+  }
+
+  getFeaturedCatGames(): any{
+    return this.http.get<any>(this.baseUrl + "get-featured-categories");
+  }
+
+  postModelQuery(gameNames: string){
+    const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
+    return this.http.post<any>(this.baseUrl + "query/" + gameNames, headers);
   }
 
   openSteamPage(gamePage: string){

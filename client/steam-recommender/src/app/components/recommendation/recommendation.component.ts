@@ -1,16 +1,15 @@
 import { Component, Input } from '@angular/core';
-import { TabsModule } from 'primeng/tabs';
-import { TopGameService } from '../../services/top-game.service';
 import { Card } from "primeng/card";
+import { TopGameService } from '../../services/top-game.service';
 
 @Component({
-  selector: 'app-game-table',
-  imports: [TabsModule, Card],
-  templateUrl: './game-table.component.html',
-  styleUrl: './game-table.component.css'
+  selector: 'app-recommendation',
+  imports: [Card],
+  templateUrl: './recommendation.component.html',
+  styleUrl: './recommendation.component.css'
 })
-export class GameTableComponent {
-  @Input() inputData: any | undefined;
+export class RecommendationComponent {
+  @Input() inputData: any[] = [];
 
   constructor(private topGameService: TopGameService){}
 

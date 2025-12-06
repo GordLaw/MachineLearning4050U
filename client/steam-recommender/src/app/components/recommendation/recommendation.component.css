@@ -1,15 +1,14 @@
 #componentContainer{
-    padding-top: 1rem;
-    padding-bottom: 1rem;
-    color: #e3ebf1;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3 1fr); 
+    padding-top: 2rem;
 }
 
 .p-card{
     --p-card-body-padding: 0px;
     background-color: #3A4554;
     margin: 10px;
-    min-width: 24rem;
-    max-width: 30rem;
     cursor: pointer;
 }
 
@@ -17,22 +16,20 @@
     background-color: #4d5b6e;
 }
 
-.cardContainer{
+.gameContainer{
     display: flex;
-}
-
-#tabletitle{
-    padding-left: 16px;
+    align-items: center;
 }
 
 .itemImage{
     border-radius: 8px 0px 0px 8px;
+    object-fit: cover;
     width: 160px;
     height: 60px;
 }
 
 .itemText{
-    margin: 6px;
+    margin: 8px;
     padding-left: 10px;
     padding-right: 10px;
     color: #e3ebf1;

@@ -1,0 +1,39 @@
+#componentContainer{
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    color: #e3ebf1;
+}
+
+#sectionTitle{
+    margin-left: 4rem;
+}
+
+.p-carousel{
+    min-width: 64rem;
+}
+
+.p-card{
+    --p-card-body-padding: 4px 0px 8px 4px;
+    
+    background-color: #3A4554;
+    margin: 10px;
+    cursor: pointer;
+    min-width: 10rem;
+}
+
+.p-card:hover{
+    background-color: #4d5b6e;
+}
+
+.itemImage{
+    object-fit: cover;
+    border-radius: 8px 8px 0px 0px;
+    width: 100%;
+}
+
+.itemLabel{
+    color: #e3ebf1;
+    text-align: center;
+    background-color: rgb(34, 38, 44);
+    padding: 4px 8px 4px 8px;
+}

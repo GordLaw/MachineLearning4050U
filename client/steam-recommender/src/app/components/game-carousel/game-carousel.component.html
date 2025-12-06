@@ -1,0 +1,17 @@
+<div id="componentContainer">
+    <div id="sectionTitle">
+        <span>Featured Games</span>
+    </div>
+    <p-carousel [value]="inputData" [numVisible]="5" [circular]="true" [responsiveOptions]="responsiveOptions">
+        <ng-template let-product #item>
+            <p-card (click)="openGamePage(product.name)">
+                <ng-template #header>
+                    <img src="{{product.header_image}}" [alt]="product.name" class="itemImage" />
+                </ng-template>
+                <ng-template #content>
+                    <span class="itemLabel">{{product.currency}}$ {{product.final_price/100}}</span>
+                </ng-template>
+            </p-card>
+        </ng-template>
+    </p-carousel>    
+</div>

@@ -20,7 +20,7 @@ p-card{
     padding-top: 1rem;
     padding-left: 1rem;
     padding-right: 1rem;
-    padding-bottom: 16%;
+    padding-bottom: 12%;
 }
 
 #mainContainer{
@@ -51,7 +51,55 @@ p-card{
     width: 80% ;
 }
 
-#additionalContainer{
+#featuredContainer{
     background-color: #1b2838;
+}
 
+#featuredGames{
+    display: flex;
+    padding-bottom: 2rem;
+    margin: auto;
+    align-items: center;
+    justify-content: center;
+}
+
+#featuredCarousel{
+    display: block;
+    margin: auto;
+    align-items: center;
+    justify-content: center;
+}
+
+#featuredCat{
+    display: flex;
+    margin: auto;
+    align-items: center;
+    justify-content: center;
+}
+
+#aboutContainer{
+    background-color: #171A21;
+    background-image: url("/assets/pyg_logo.png");
+    background-repeat: no-repeat;
+    background-position: -6rem 10rem;
+    background-size: 20%;
+    height: 50vh;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    padding-left: 26rem;
+    padding-right: 26rem;
+}
+
+#aboutTextContainer{
+    color: #e3ebf1;
+    min-width: 30rem;
+}
+
+#aboutResourcesContainer{
+    min-width: 30rem;
+}
+
+#aboutResourcesContainer a{
+    min-width: 30rem;
+    color: #2e5e83;
 }

@@ -1,5 +1,5 @@
 import { ApplicationConfig, Component, provideZoneChangeDetection } from '@angular/core';
-import { provideRouter } from '@angular/router';
+import { provideRouter, withInMemoryScrolling } from '@angular/router';
 import { routes } from './app.routes';
 import { definePreset } from '@primeng/themes';
 import { provideHttpClient } from '@angular/common/http';
@@ -12,7 +12,9 @@ export const appConfig: ApplicationConfig = {
     provideZoneChangeDetection({ 
       eventCoalescing: true 
     }), 
-    provideRouter(routes),
+    provideRouter(routes, withInMemoryScrolling({
+      anchorScrolling: "enabled",
+    })),
     provideHttpClient(),
     provideAnimationsAsync(),
     providePrimeNG({

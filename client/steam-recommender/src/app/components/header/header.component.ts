@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { MenubarModule } from 'primeng/menubar';
 import { MenuItem } from 'primeng/api';
 import { ButtonModule } from 'primeng/button';
@@ -10,16 +10,22 @@ import { ButtonModule } from 'primeng/button';
   styleUrl: './header.component.css',
 })
 export class HeaderComponent implements OnInit {
+    @Output() newItemEvent = new EventEmitter<string>();
     items: MenuItem[] | undefined;
+
     ngOnInit() {
         this.items = [
             {
                 label: 'Home',
-                icon: 'pi pi-home',
+                command: () => { this.newItemEvent.emit("container"); }
             },
             {
-                label: 'Projects',
-                icon: 'pi pi-search',
+                label: 'Featured',
+                command: () => { this.newItemEvent.emit('featuredContainer'); }
+            },
+            {
+                label: 'About',
+                command: () => { this.newItemEvent.emit('aboutContainer'); }
             }
         ];
     }
