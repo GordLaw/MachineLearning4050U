@@ -13,16 +13,21 @@ def hello_world():
 @app.route("/query/<query_data>", methods=["POST"])
 def query_model(query_data: str):
     game_list = []
-    print(query_data.split(", "))
-    recs = recommend_multiple_titles(query_data.split(", "))
-    for game in recs[:6]:
-        item_params = {
-            "term": game["title"],
-            "l": "english",
-            "cc": "CA"
-        }
-        item_search = requests.get("https://store.steampowered.com/api/storesearch/", params=item_params)
-        game_list.append(item_search.json()["items"][0])
+    try:    
+        recs = recommend_multiple_titles(query_data.split(", "))
+        for game in recs[:6]:
+            item_params = {
+                "term": game["title"],
+                "l": "english",
+                "cc": "CA"
+            }
+            item_search = requests.get("https://store.steampowered.com/api/storesearch/", params=item_params)
+            game_list.append(item_search.json()["items"][0])
+    except ValueError as e:
+        return jsonify({
+            "status": 400,
+            "recommended_games": None
+        })
 
     return jsonify({
         "status": 200,

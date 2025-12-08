@@ -126,11 +126,16 @@ def recommend_multiple_titles(titles_input, top_k=10):
 
     return results
 
-
+# to inference by running the file uncomment the code below and 
+# the "gnn" part of gnn.gnn_model in the imports so its only gnn_model
 #if __name__ == "__main__":
-#    q = ["Baldur's Gate 3", "Dota 2"]
-#    recs = recommend_multiple_titles(q, top_k=5)
-#
-#    print(f"\nRecommendations for '{q}':\n")
-#    for r in recs:
-#        print(f"- {r['title']}  (sim={r['similarity']:.3f})")
+#    q = ["Baldur's Gae 3", "Dota 2"]
+#    try:
+#        recs = recommend_multiple_titles(q, top_k=5)
+#        print(f"\nRecommendations for '{q}':\n")
+#        for r in recs:
+#            print(f"- {r['title']}  (sim={r['similarity']:.3f})")
+#    except ValueError as e:
+#        print(f"Error: {e}")
+
+

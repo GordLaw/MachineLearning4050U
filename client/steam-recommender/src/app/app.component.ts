@@ -56,7 +56,6 @@ export class AppComponent {
       this.featuredSpecialGames = response.top_cat_games.specials
       this.featuredTopGames = response.top_cat_games.top_sellers
       this.featuredNewGames = response.top_cat_games.new_releases
-      console.log(this.featuredTopGames)
     });
   }
 
@@ -68,7 +67,6 @@ export class AppComponent {
     console.log(message);
     this.topGameService.postModelQuery(message).subscribe((response: any) => {
       this.recommendedgames = response.recommended_games;
-      console.log(response)
     });
   }
 }
