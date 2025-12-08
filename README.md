@@ -1,5 +1,5 @@
 # Machine Learning 4050U Final Project
-----
+
 ## Steam Recommendation System
 
 This project is made by Daniel Bryon, Beatriz Provido, and 
