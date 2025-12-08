@@ -13,8 +13,9 @@ def hello_world():
 @app.route("/query/<query_data>", methods=["POST"])
 def query_model(query_data: str):
     game_list = []
-    recs = recommend_by_title(query_data)
-    for game in recs[:5]:
+    print(query_data.split(", "))
+    recs = recommend_multiple_titles(query_data.split(", "))
+    for game in recs[:6]:
         item_params = {
             "term": game["title"],
             "l": "english",

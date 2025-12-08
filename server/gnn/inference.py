@@ -12,9 +12,6 @@ from gnn.gnn_model import GameGNN, DotProductLinkPredictor
 
 
 THIS_DIR = os.path.dirname(__file__)
-print("=======================")
-print(THIS_DIR)
-print("=======================")
 MODEL_PATH = os.path.join(THIS_DIR, "gnn_model.pth")
 GRAPH_PATH = os.path.join(THIS_DIR, "graph_data.pt")
 
@@ -89,11 +86,51 @@ def recommend_by_title(title: str, top_k: int = 10) -> List[Dict]:
 
     return results
 
+def recommend_multiple_titles(titles_input, top_k=10):
+    model, predictor, data, device = load_model_and_graph()
+    titles = data.titles
+
+    # Title lookup
+    idx_list = []
+    for title in titles_input:
+        try:
+            idx = next(i for i, t in enumerate(titles) if t.lower() == title.lower())
+            idx_list.append(idx)
+        except StopIteration:
+            raise ValueError(f"Title '{title}' not found in dataset.")
+
+    # Generate recommendations
+    with torch.no_grad():
+        z = model(data.x, data.edge_index)
+        z = F.normalize(z, p=2, dim=-1)
+
+        target = z[idx_list].mean(dim=0, keepdim=True)
+        target = F.normalize(target, p=2, dim=-1)
+
+        sims = (z @ target.T).squeeze(1)
+
+        # Exclude input titles
+        for idx in idx_list:
+            sims[idx] = -1
+
+        top_vals, top_idx = torch.topk(sims, k=top_k)
+
+    results = []
+    for score, j in zip(top_vals.tolist(), top_idx.tolist()):
+        results.append({
+            "title": titles[j],
+            "similarity": float(score),
+            "index": int(j),
+            "appid": data.appids[j] if hasattr(data, "appids") else None,
+        })
+
+    return results
+
 
 #if __name__ == "__main__":
-#    q = "Baldur's Gate 3"
-#    recs = recommend_by_title(q, top_k=5)
-
+#    q = ["Baldur's Gate 3", "Dota 2"]
+#    recs = recommend_multiple_titles(q, top_k=5)
+#
 #    print(f"\nRecommendations for '{q}':\n")
 #    for r in recs:
 #        print(f"- {r['title']}  (sim={r['similarity']:.3f})")

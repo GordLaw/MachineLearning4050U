@@ -9,7 +9,7 @@ import { GameHighlightComponent } from './components/game-highlight/game-highlig
 import { TopGameService } from './services/top-game.service';
 import { RecommendationComponent } from './components/recommendation/recommendation.component';
 import { DividerModule } from 'primeng/divider';
-import { ViewportScroller } from '@angular/common';
+import { ViewportScroller, NgStyle } from '@angular/common';
 
 @Component({
   selector: 'app-root',

@@ -10,8 +10,14 @@
             <h1>Find Your Next Favorite Game</h1>
         </div>
         <div id="subtextContainer">
-          <p>Find your next game with our AI-powered recommender system to analyzes your tastes and playstyle to deliver smart, personalized game suggestions.</p>
-          <!-- or some sort of instruction on how to use -->
+          <p>
+            Find your next game with our AI-powered recommender system to 
+            analyzes your tastes and playstyle to deliver smart, personalized 
+            game suggestions.
+          </p>
+          <p>
+            For multiple games, input your games like the following: Dota 2, Baldur's Gate 3, ...
+          </p>
         </div>
         <app-input (userInput)="receiveMessage($event)"></app-input>
         <app-recommendation [inputData]="recommendedgames"></app-recommendation>
