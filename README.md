@@ -105,3 +105,4 @@ Steam Recommendation System
 * https://flask.palletsprojects.com/en/stable/
 * https://uvadlc-notebooks.readthedocs.io/en/latest/index.html
 * https://www.dgl.ai/dgl_docs/en/2.3.x/index.html
+* https://distill.pub/2021/gnn-intro/
